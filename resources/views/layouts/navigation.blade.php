@@ -15,6 +15,18 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    {{-- lien pour afficher la page  admin user --}}
+                    <x-nav-link :href="route('admin-user')" :active="request()->routeIs('dashboard')">
+                        {{ __('User') }}
+                    </x-nav-link>
+                    {{-- lien pour afficher la page  admin actu --}}
+                    <x-nav-link :href="route('admin-actu-lister')" :active="request()->routeIs('dashboard')">
+                        {{ __('Actu Lister') }}
+                    </x-nav-link>
+                     {{-- lien pour afficher la page  admin actu editer--}}
+                    <x-nav-link :href="route('admin-actu-editer')" :active="request()->routeIs('dashboard')">
+                        {{ __('Actu Editer') }}
+                    </x-nav-link>
                 </div>
             </div>
 

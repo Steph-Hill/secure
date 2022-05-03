@@ -47,11 +47,26 @@
                     </div>
                 </div>
             </div>
+            
+            <!--Button content -->
+
+            @if ($item->admin==0)
+                  <div class="user-option mx-auto sm:ml-auto sm:mr-0">
+            
+                        <a href="{{route("admin-user-right",["user"=>$item->id])}}" class="btn inline-block select-none no-underline align-middle cursor-pointer whitespace-nowrap px-4 py-1.5 rounded text-base font-medium leading-6 tracking-tight text-white text-center border-0 bg-[#005068] hover:bg-[#0acb84]  duration-300" type="button">User</a>
+                 
+                   </div>
+            <!--Close Button content --> 
+            @else
             <!--Button content -->
             <div class="user-option mx-auto sm:ml-auto sm:mr-0">
-                <button class="btn inline-block select-none no-underline align-middle cursor-pointer whitespace-nowrap px-4 py-1.5 rounded text-base font-medium leading-6 tracking-tight text-white text-center border-0 bg-[#6911e7] hover:bg-[#590acb] duration-300" type="button">Follow</button>
+            
+                <a href="{{route("admin-user-right",["user"=>$item->id])}}" class="btn inline-block select-none no-underline align-middle cursor-pointer whitespace-nowrap px-4 py-1.5 rounded text-base font-medium leading-6 tracking-tight text-white text-center border-0 bg-[#0c50a3] hover:bg-[#0aa8cb] duration-300" type="button">Admin</a>
+            
             </div>
             <!--Close Button content -->
+            @endif
+         
         </div>
         
         @empty

@@ -50,7 +50,34 @@ Route::get("/admin/actu-lister",[ActuController::class,"index"])->middleware(["a
 /******************************
  * Administration Actu-Editer *
  ******************************/
+
 Route::get("/admin/actu-editer",[ActuController::class,"editer"])->middleware(["auth"])->name("admin-actu-editer");
 
+Route::post("/admin/actu-editer",[ActuController::class,"create"])->middleware(["auth"])->name("admin-actu-ajouter");
 
+/*******************************
+ * Administration Actu-Modifier*
+ *******************************/
+
+ Route::get("/admin/actu-editer/{actu}",[ActuController::class,"editer"])->middleware(["auth"])->name("admin-actu-modifier");
+
+ Route::post("/admin/actu-editer/{actu}",[ActuController::class,"update"])->middleware(["auth"])->name("admin-actu-modifier");
  
+/*********************************
+ * Administration Actu-Supprimer *
+ *********************************/
+
+Route::get("/admin/actu-supprimer/{actu}",[ActuController::class,"delete"])->middleware(["auth"])->name("admin-actu-supprimer");
+  
+
+/*************************************
+ * Gestion des droits administrateur *
+ *************************************/
+
+ Route::get("/admin/user/right/{user}",[UserController::class,"manageRight"])->middleware(["auth"])->name("admin-user-right");
+ 
+ /**********************
+  * Espace public News *
+  **********************/
+
+Route::get("/public/news-lister",[ActuController::class,"accueil"])->name("public-news-lister");

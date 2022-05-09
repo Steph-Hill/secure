@@ -60,6 +60,27 @@
         <h1 class="text-center text-2xl font-bold text-gray-500 mb-10">ADD POST </h1>
         <div class="space-y-4">
           <div>
+              <label for="semaine">Selectionnez un jour:</label>
+                <select name="semaine_id" id="semaine">
+                  @foreach ($semaines as $jourDeLaSemaine)
+                  
+                    @if ($jourDeLaSemaine->id== $actu->semaine_id)
+
+                      <option value="{{$jourDeLaSemaine->id}}" selected>{{$jourDeLaSemaine->jour}}</option>  
+                   
+                      @else
+
+                      <option value="{{$jourDeLaSemaine->id}}" >{{$jourDeLaSemaine->jour}}</option> 
+                    
+                      @endif
+                    
+                     
+                  @endforeach
+                  
+                  
+                </select>
+          </div>
+          <div>
             <label for="title" class="text-lx font-serif">Titre:</label>
             <input value="{{$actu->titre}}" type="text" placeholder="Saisissez votre titre" name="titre" class="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md" />
           </div>
@@ -71,6 +92,7 @@
               <label for="image"  type="file">Mettre une image :</label>
               <input type="file" name="imageActu">
           </div>
+          
           <button type="submit" class=" px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-indigo-100 bg-indigo-600  ">Ajouter mon Actualité</button>
         </div>
       </div>

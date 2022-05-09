@@ -3,19 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Actu;
+use App\Models\Semaine;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ActuController extends Controller
 {
     //
-    public function index(){
+    public function index(Actu $actu){
 
         $actus = Actu::all();
 
-        
+    return view("admin.actu-lister",compact("actus"));
 
-        return view("admin.actu-lister",compact("actus"));
     }
 
     /***********************
@@ -39,6 +39,8 @@ class ActuController extends Controller
            *****************************************/   
              $news->titre = $request->titre;
              $news->description = $request->description;
+             $news->semaine_id  = $request->semaine_id;
+             
 
             /***************************************
              * Je controle l'existence d'une image *
@@ -72,10 +74,6 @@ class ActuController extends Controller
           
         }
 
-         
-
-       
-
          $news->save();
 
         return back();
@@ -94,6 +92,7 @@ class ActuController extends Controller
                  ****************************/
 
                  $actu->update(["titre"=>$request->titre,
+                                "semaine_id"=>$request->semaine_id,
                                 "description"=>$request->description]);
 
               return back();
@@ -104,9 +103,10 @@ class ActuController extends Controller
 
     public function editer(Actu $actu){
 
+        $semaines = Semaine::all() ; 
 
 
-        return view("admin.actu-editer",compact("actu"));
+        return view("admin.actu-editer",compact("actu","semaines"));
     } 
 
 

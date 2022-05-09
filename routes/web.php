@@ -3,6 +3,7 @@
 use App\Http\Controllers\ActuController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MoncompteController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -80,4 +81,10 @@ Route::get("/admin/actu-supprimer/{actu}",[ActuController::class,"delete"])->mid
   * Espace public News *
   **********************/
 
-Route::get("/public/news-lister",[ActuController::class,"accueil"])->name("public-news-lister");
+Route::get("/public/news-lister",[NewsController::class,"accueil"])->name("public-news-lister");
+
+/********************************
+ * Affiche les details des news *
+ ********************************/
+
+Route::get("/public/news-detail/{actu}",[NewsController::class,"detail"])->name("public-news-detail");

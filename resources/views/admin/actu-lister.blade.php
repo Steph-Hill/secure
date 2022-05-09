@@ -43,12 +43,17 @@
                         <div class=" ml-4 md:col-start-auto md:ml-0 md:justify-end flex space-x-2">
                           <p class="rounded-lg text-sky-500 font-bold bg-sky-100  py-1 px-3 text-sm w-fit h-fit"> Modifier</p>
                   
-                            <p class="rounded-lg text-sky-500 font-bold bg-sky-100  py-1 px-3 text-sm w-fit h-fit"> Supprimer</p>
+                            
                           </div>
                       </div>
                   
                     </a>
 
+                </div>
+
+                <div class=" py-5 flex items-center justify-center rounded-lg text-sky-500 font-bold bg-sky-100  text-sm ">
+
+                    <a  href="{{route("admin-actu-supprimer",["actu"=>$actu])}}">Supprimer</a>
                 </div>
                 
             @empty
